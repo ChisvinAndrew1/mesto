@@ -5,6 +5,7 @@
 @import url(../blocks/page/__header/page__header.css);
 @import url(../blocks/page/__profile/page__profile.css);
 @import url(../blocks/page/__gallery/page__gallery.css);
+@import url(../blocks/page/__footer/page__footer.css);
 
 
 @import url(../blocks/header/header.css);
@@ -27,3 +28,6 @@
 @import url(../blocks/gallery/__image/gallery__image.css);
 @import url(../blocks/gallery/__stroke/gallery__stroke.css);
 
+
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__text/footer__text.css);
