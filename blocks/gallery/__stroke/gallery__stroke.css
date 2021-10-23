@@ -1,0 +1,12 @@
+.gallery__stroke {
+  background: url(../../../images/Stroke.svg) no-repeat center center/cover;
+  min-width: 22px;
+  min-height: 19px;
+  margin: 30px 20px 30px 0;
+  border: none;
+  padding: 0;
+}
+
+.gallery__stroke:active {
+  background-image: url(../../../images/Union.svg);
+}

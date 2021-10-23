@@ -1,0 +1,8 @@
+.gallery__element {
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-height: 361px;
+}

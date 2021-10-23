@@ -1,0 +1,12 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 282px);
+  max-width: 880px;
+  gap: 20px 17px;
+justify-content: center;}
+
+@media screen and (max-width: 880px) {
+  .page__gallery {
+  max-width: calc(100% - 38px);
+  }
+}

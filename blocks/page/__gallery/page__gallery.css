@@ -1,0 +1,9 @@
+.page__gallery {
+  margin: 51px auto 67px;
+}
+
+@media screen and (max-width: 880px) {
+  .page__gallery {
+  max-width: calc(100% - 19px);
+  }
+}

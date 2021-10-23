@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,33 +13,70 @@
 
 <body>
 
-    <div class="page">
+  <div class="page">
 
-      <header class="header page__header">
-        <img class="header__logo" src="./images/logo.svg" alt="логотип Mesto">
-      </header>
+    <header class="header page__header">
+      <img class="header__logo" src="./images/logo.svg" alt="логотип Mesto">
+    </header>
 
 
-      <main class="content">
+    <main class="content">
 
-        <section class="profile page__profile">
+      <section class="profile page__profile">
 
-          <img class="profile__image" src="./images/jack-iv-kusto.jpg" alt="фотография профиля">
-          <div class="profile__info">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button" type="button"></button>
-            <p class="profile__about-self">Исследователь океана</p>
+        <img class="profile__image" src="./images/jack-iv-kusto.jpg" alt="фотография профиля">
+        <div class="profile__info">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button"></button>
+          <p class="profile__about-self">Исследователь океана</p>
+        </div>
+        <button type="button" class="profile__add-button"></button>
+      </section>
+
+      <section class="gallery page__gallery">
+        <div class="gallery__element">
+          <img class="gallery__image" src="./images/карачаевск.jpg" alt="фотография посещенного места">
+          <h3 class="gallery__el-title">Карачаевск</h3>
+          <button type="button" class="gallery__stroke"></button>
+        </div>
+
+        <div class="gallery__element">
+          <img class="gallery__image" src="./images/эльбрус.jpg" alt="фотография посещенного места">
+          <h3 class="gallery__el-title">Гора Эльбрус</h3>
+          <button type="button" class="gallery__stroke"></button>
+        </div>
+
+        <div class="gallery__element">
+          <img class="gallery__image" src="./images/домбай.jpg" alt="фотография посещенного места">
+          <h3 class="gallery__el-title">Домбай</h3>
+          <button type="button" class="gallery__stroke"></button>
+        </div>
+
+        <div class="gallery__element">
+          <img class="gallery__image" src="./images/эльбрус.jpg" alt="фотография посещенного места">
+          <h3 class="gallery__el-title">Гора Эльбрус</h3>
+          <button type="button" class="gallery__stroke"></button>
           </div>
-          <button type="button" class="profile__add-button">
-          </button>
-        </section>
+
+        <div class="gallery__element">
+          <img class="gallery__image" src="./images/домбай.jpg" alt="фотография посещенного места">
+          <h3 class="gallery__el-title">Домбай</h3>
+          <button type="button" class="gallery__stroke"></button>
+          </div>
+
+        <div class="gallery__element">
+          <img class="gallery__image" src="./images/карачаевск.jpg" alt="фотография посещенного места">
+          <h3 class="gallery__el-title">Карачаево-Черкесия</h3>
+          <button type="button" class="gallery__stroke"></button>
+          </div>
+      </section>
 
 
-      </main>
+    </main>
 
 
-    </div>
-    <script src="./scripts/scripts.js"></script>
-  </body>
+  </div>
+  <script src="./scripts/scripts.js"></script>
+</body>
 
-  </html>
+</html>
