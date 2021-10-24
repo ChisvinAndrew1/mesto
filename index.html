@@ -56,19 +56,19 @@
           <img class="gallery__image" src="./images/эльбрус.jpg" alt="фотография посещенного места">
           <h3 class="gallery__el-title">Гора Эльбрус</h3>
           <button type="button" class="gallery__stroke"></button>
-          </div>
+        </div>
 
         <div class="gallery__element">
           <img class="gallery__image" src="./images/домбай.jpg" alt="фотография посещенного места">
           <h3 class="gallery__el-title">Домбай</h3>
           <button type="button" class="gallery__stroke"></button>
-          </div>
+        </div>
 
         <div class="gallery__element">
           <img class="gallery__image" src="./images/карачаевск.jpg" alt="фотография посещенного места">
           <h3 class="gallery__el-title">Карачаево-Черкесия</h3>
           <button type="button" class="gallery__stroke"></button>
-          </div>
+        </div>
       </section>
     </main>
 
@@ -76,8 +76,21 @@
       <p class="footer__text">© 2021 Mesto Russia</p>
     </footer>
 
+    <section class="popup">
+      <div class="popup__container">
+        <button class="popup__close"></button>
+        <form class="popup__form">
+          <h2 class="popup__heading">Редактировать профиль</h2>
+          <fieldset class="popup__input-container">
+            <input  value="Жак-Ив Кусто" placeholder="Имя и Фамилия" type="text" name="profile-name" class="popup__input popup__input_el_name">
+            <input value="Исследователь океана" placeholder="О себе" type="text" name="profile-about" class="popup__input popup__input_el_about">
+          </fieldset>
+          <button type="submit" class="popup__sumbit">Сохранить</button>
+        </form>
+      </div>
+    </section>
   </div>
-  <script src="./scripts/scripts.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>
