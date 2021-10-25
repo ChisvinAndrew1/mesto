@@ -19,6 +19,6 @@
 * Применялась технология адаптивной верстки, элементы DOM-дерева
 
 
-[**Ссылка на проект**](https://chisvinandrew1.github.io/russian-travel/)
+[**Ссылка на проект**](https://chisvinandrew1.github.io/mesto/)
 
 **Чисвин Андрей** 89161136416 **_WhatsApp_**
