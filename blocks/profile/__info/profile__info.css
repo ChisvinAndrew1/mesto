@@ -1,14 +1,15 @@
 .profile__info {
-  width: 336px;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   align-content: space-between;
+  max-width: calc(100% - 300px);
 }
 
 @media screen and (max-width: 767px) {
   .profile__info {
-    width: 100%;
+    max-width: 100%;
     position: relative;
+
   }
 }

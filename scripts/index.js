@@ -17,11 +17,14 @@ function formSubmitHandler (evt) {
   evt.preventDefault();
   const ProfileNameElement = document.querySelector('.profile__name');
   const ProfileAboutElement = document.querySelector('.profile__about-self');
-  ProfileNameElement.textContent = `${nameInput.value}`;
-  ProfileAboutElement.textContent = `${jobInput.value}`;
+  ProfileNameElement.textContent = nameInput.value;
+  ProfileAboutElement.textContent = jobInput.value;
+  nameInput.value = ProfileNameElement.textContent;
+  jobInput.value =  ProfileAboutElement.textContent;
 };
 
 popupOpenButtonElement.addEventListener('click', AddPopupVisibility);
 popupCloseButtonElement.addEventListener('click', RemovePopupVisibility);
 formElement.addEventListener('submit', formSubmitHandler);
 formElement.addEventListener('submit', RemovePopupVisibility);
+

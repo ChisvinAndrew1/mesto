@@ -11,6 +11,8 @@
   font-size: 18px;
   line-height: 22px;
   color: white;
+  transition: opacity 1s ease;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {
@@ -19,4 +21,8 @@
     font-size: 14px;
     line-height: 17px;
   }
+}
+
+.popup__sumbit:hover {
+  opacity: .8;
 }

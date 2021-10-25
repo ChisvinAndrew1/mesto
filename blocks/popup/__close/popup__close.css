@@ -6,7 +6,8 @@
   height: 32px;
   background: url(../../../images/Close\ Icon.svg) no-repeat center/cover;
   border: none;
-  ;
+  cursor: pointer;
+  transition: opacity 1s ease;
 }
 
 @media screen and (max-width: 767px) {
@@ -17,4 +18,8 @@
     width: 20px;
     height: 20px;
   }
+}
+
+.popup__close:hover {
+  opacity: .6;
 }
