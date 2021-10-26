@@ -4,7 +4,7 @@
   min-height: 24px;
   border: 1px solid white;
   padding: 0;
-  background: url(../../../images/pen.svg) no-repeat center center/7px 7px, black;
+  background: url(../../../images/pen.svg) no-repeat center center/10px 10px, black;
   transition: opacity 1s ease;
   cursor: pointer;
   box-sizing: border-box;
@@ -18,7 +18,7 @@
     right: 19px;
     min-width: 18px;
     min-height: 18px;
-    background-size: 5.25px 5.25px;
+    background-size: 7.5px 7.5px;
   }
 }
 

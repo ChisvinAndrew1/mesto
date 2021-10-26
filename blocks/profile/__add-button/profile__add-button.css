@@ -4,6 +4,7 @@
   min-height: 50px;
   box-sizing: border-box;
   border: 2px solid white;
+  border-radius: 2px;
   padding: 0;
   background: url(../../../images/pluse.svg) no-repeat center center/22px 22px,
               black;

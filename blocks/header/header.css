@@ -6,4 +6,9 @@
   width: calc(100% - 38px);
 }
 
-
+@media screen and (max-width: 767px) {
+  .header {
+        width: 100%;
+        min-height: 56px;
+  }
+}

@@ -4,5 +4,5 @@
   max-width: 880px;
   width: calc(100% - 38px);
   gap: 20px 17px;
-justify-content: center;
+  justify-content: center;
 }
