@@ -39,19 +39,19 @@ const popupElementText = popupImage.querySelector('.popup__text');
 const popupCloseButtonPopupImage = document.querySelector('.popup__close_el_image');
 
 // функция главная по отрисовке массива
-function main() {
+function renderInitialCards() {
   initialCards.forEach((element) => {
     renderItem(element);
   });
-  formElementGallery.addEventListener("submit", handleSubmit);
 }
 // отрисовка одной карточки и вставка ее в разметку
 function renderItem(el) {
   const cardElement = userTemplate.cloneNode(true);
+  const cardElementImage = cardElement.querySelector(".card__image");
   cardElement.querySelector(".card__el-title").textContent = el.name;
-  cardElement.querySelector(".card__image").src = el.link;
-  cardElement.querySelector(".card__image").alt = el.name;
-  setListeners(cardElement);
+  cardElementImage.src = el.link;
+  cardElementImage.alt = el.name;
+  setCardListeners(cardElement);
   sectionGallery.prepend(cardElement);
   return cardElement;
 }
@@ -62,26 +62,25 @@ function addCard() {
     link: sourseInput.value,
   };
   const cardElement = renderItem(newCard);
-  sectionGallery.prepend(cardElement);
 }
 // колбек самбита
-function handleSubmit(evt) {
+function handlePopupAddCardSubmit(evt) {
   evt.preventDefault();
   addCard();
   removePopupVisibility(popupElementGallery);
 }
 // функция на слушатели
-function setListeners(element) {
-  element.querySelector(".card__stroke").addEventListener("click", handleLike);
-  element.querySelector(".card__trash").addEventListener("click", handleDelete);
+function setCardListeners(element) {
+  element.querySelector(".card__stroke").addEventListener("click", handleCardLike);
+  element.querySelector(".card__trash").addEventListener("click", handleCardDelete);
   element.querySelector(".card__image").addEventListener('click', renderPopupImage);
 }
 // функция лайка
-function handleLike(event) {
+function handleCardLike(event) {
   event.target.classList.toggle("card__stroke_active");
 }
 // функция удаления карточки
-function handleDelete(event) {
+function handleCardDelete(event) {
   event.target.closest(".card").remove();
 }
 // функция отрисовки попапа с увеличенной картинкой
@@ -102,6 +101,8 @@ popupOpenButtonElementGallery.addEventListener('click', () => {
 popupCloseButtonElementGallery.addEventListener('click', handlePopupCloseButtonClick);
 // слушатель закрытия попапа с увеличенной картинкой
 popupCloseButtonPopupImage.addEventListener('click', handlePopupCloseButtonClick);
+// слушатель самбита добавления карточки
+formElementGallery.addEventListener("submit", handlePopupAddCardSubmit);
 
 // вызов главной функции
-main();
+renderInitialCards();
