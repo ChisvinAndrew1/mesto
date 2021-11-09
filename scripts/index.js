@@ -14,11 +14,11 @@ const popupCloseButtonElementGallery = popupElementGallery.querySelector('.popup
 // функция открытия попапа
 function addPopupVisibility(popup) {
   popup.classList.add('popup_is-open');
-};
+}
 // функция скрытия попапов
 function removePopupVisibility(popup) {
   popup.classList.remove('popup_is-open');
-};
+}
 // функция колбек для слушателя закрытия
 const handlePopupCloseButtonClick = (evt) => {
  const openPopup = evt.target.closest('.popup_is-open');
@@ -31,7 +31,7 @@ function formSubmitHandlerProfile(evt) {
   profileNameElement.textContent = nameInput.value;
   profileAboutElement.textContent = jobInput.value;
   removePopupVisibility(popupElementProfile);
-};
+}
 
 // слушатель для кнопки редактирования профиля
 popupOpenButtonElementProfile.addEventListener('click', () => {
