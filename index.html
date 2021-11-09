@@ -41,30 +41,58 @@
       <p class="footer__text">© 2021 Mesto Russia</p>
     </footer>
 
-    <section class="popup">
+    <section class="popup popup_type_profile">
       <div class="popup__container">
-        <button type="button" class="popup__close"></button>
-        <form class="popup__form" name="popup">
+        <button type="button" class="popup__close popup__close_el_profile"></button>
+        <form class="popup__form popup__form_el_profile" name="popup">
           <h2 class="popup__heading">Редактировать профиль</h2>
           <fieldset class="popup__input-container">
-            <input  value="Жак-Ив Кусто" placeholder="Имя и Фамилия" type="text" name="profile-name" class="popup__input popup__input_el_name">
-            <input value="Исследователь океана" placeholder="О себе" type="text" name="profile-about" class="popup__input popup__input_el_about">
+            <input value="Жак-Ив Кусто" placeholder="Имя и Фамилия" type="text" name="profile-name"
+              class="popup__input popup__input_el_name">
+            <input value="Исследователь океана" placeholder="О себе" type="text" name="profile-about"
+              class="popup__input popup__input_el_about">
           </fieldset>
           <button type="submit" class="popup__sumbit">Сохранить</button>
         </form>
       </div>
     </section>
+
+    <section class="popup popup_type_gallery">
+      <div class="popup__container">
+        <button type="button" class="popup__close popup__close_el_gallery"></button>
+        <form class="popup__form popup__form_el_gallery" name="popup">
+          <h2 class="popup__heading">Новое место</h2>
+          <fieldset class="popup__input-container">
+            <input value="#" placeholder="Название" type="text" name="gallery-element"
+              class="popup__input popup__input_el_name-gallery">
+            <input value="#" placeholder="Ссылка на картинку" type="text" name="profile-about"
+              class="popup__input popup__input_el_source">
+          </fieldset>
+          <button type="submit" class="popup__sumbit">Создать</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="popup popup_type_image">
+      <div class="popup__container popup__container_type_image">
+        <button type="button" class="popup__close popup__close_el_image"></button>
+        <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg" alt="картинка из карточки" class="popup__image">
+        <p class="popup__text">Новое место</p>
+      </div>
+    </section>
   </div>
 
-  <template id="card_template">
+  <template class="template_item">
     <article class="card">
-      <img class="card__image" src="./images/карачаевск.jpg" alt="фотография посещенного места">
-      <h3 class="card__el-title">Карачаевск</h3>
+      <img class="card__image" src="#" alt="фотография посещенного места">
+      <button type="button" class="card__trash"></button>
+      <h3 class="card__el-title"></h3>
       <button type="button" class="card__stroke"></button>
     </article>
   </template>
-
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/intial-cards.js"></script>
+  <script src="./scripts/popup-image.js"></script>
 </body>
 
 </html>

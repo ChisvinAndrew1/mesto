@@ -6,4 +6,5 @@
   justify-content: space-between;
   max-height: 361px;
   overflow: hidden;
+  position: relative;
 }
