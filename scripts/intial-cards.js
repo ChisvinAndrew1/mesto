@@ -44,16 +44,21 @@ function renderInitialCards() {
     renderItem(element);
   });
 }
-// отрисовка одной карточки и вставка ее в разметку
-function renderItem(el) {
+
+function createCard(el) {
   const cardElement = userTemplate.cloneNode(true);
   const cardElementImage = cardElement.querySelector(".card__image");
   cardElement.querySelector(".card__el-title").textContent = el.name;
   cardElementImage.src = el.link;
   cardElementImage.alt = el.name;
-  setCardListeners(cardElement);
-  sectionGallery.prepend(cardElement);
   return cardElement;
+}
+
+// отрисовка одной карточки и вставка ее в разметку
+function renderItem(el) {
+  const cardCreateElement = createCard(el);
+  setCardListeners(cardCreateElement);
+  sectionGallery.prepend(cardCreateElement);
 }
 // функция добавления пользовательской карточки
 function addCard() {
