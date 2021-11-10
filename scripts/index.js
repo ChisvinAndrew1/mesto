@@ -46,7 +46,7 @@ function renderItem(el) {
   sectionGallery.prepend(cardCreateElement);
 }
 // функция добавления пользовательской карточки
-function sumbitAddCardForm() {
+function submitAddCardForm() {
   const newCard = {
     name: nameGalleryInput.value,
     link: sourseInput.value,
