@@ -86,7 +86,7 @@ popupOpenButtonElementProfile.addEventListener('click', () => {
 // колбек самбита добавления каточек
 function handlePopupAddCardSubmit(evt) {
   evt.preventDefault();
-  addCard();
+  submitAddCardForm();
   removePopupVisibility(popupElementGallery);
 }
 // функция на слушатели
