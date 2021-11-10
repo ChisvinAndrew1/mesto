@@ -36,22 +36,22 @@ function createCard(el) {
   cardElement.querySelector(".card__el-title").textContent = el.name;
   cardElementImage.src = el.link;
   cardElementImage.alt = el.name;
+  setCardListeners(cardElement);
   return cardElement;
 }
 
 // отрисовка одной карточки и вставка ее в разметку
 function renderItem(el) {
   const cardCreateElement = createCard(el);
-  setCardListeners(cardCreateElement);
   sectionGallery.prepend(cardCreateElement);
 }
 // функция добавления пользовательской карточки
-function addCard() {
+function sumbitAddCardForm() {
   const newCard = {
     name: nameGalleryInput.value,
     link: sourseInput.value,
   };
-  const cardElement = renderItem(newCard);
+renderItem(newCard);
 }
 
 // функция открытия попапа
