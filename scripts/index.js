@@ -110,7 +110,13 @@ function renderPopupImage(evt) {
   popupElementImage.alt = evt.target.alt;
   addPopupVisibility(popupImage);
 }
-
+// функция закрытия попапа через overlay
+function closePopupByClickOverlay(evt) {
+  const openPopup = evt.target;
+  if(evt.target === evt.currentTarget) {
+    removePopupVisibility(openPopup);
+  }
+};
 // функция слушатель для кнопки добавления карточек
 popupOpenButtonElementGallery.addEventListener('click', () => {
   nameGalleryInput.value = "";
@@ -123,7 +129,10 @@ popupCloseButtonElementGallery.addEventListener('click', handlePopupCloseButtonC
 popupCloseButtonPopupImage.addEventListener('click', handlePopupCloseButtonClick);
 // слушатель самбита добавления карточки
 formElementGallery.addEventListener("submit", handlePopupAddCardSubmit);
-
+// слушатели оверлей
+popupElementProfile.addEventListener('click', closePopupByClickOverlay);
+popupElementGallery.addEventListener('click', closePopupByClickOverlay);
+popupImage.addEventListener('click', closePopupByClickOverlay);
 // слушатель самбита профиля
 formElementProfile.addEventListener('submit', formSubmitHandlerProfile);
 // слушатель для закрытия попапа профиля
