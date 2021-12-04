@@ -25,8 +25,10 @@ const popupCloseButtonPopupImage = document.querySelector('.popup__close_el_imag
 
 // функция главная по отрисовке массива
 function renderInitialCards() {
-  initialCards.forEach((element) => {
-    renderItem(element);
+  initialCards.forEach((el) => {
+    const cardCreateElement = createCard(el);
+    sectionGallery.append(cardCreateElement);
+    // renderItem(element);
   });
 }
 // функция создания карточки
