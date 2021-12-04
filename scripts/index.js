@@ -57,10 +57,15 @@ renderItem(newCard);
 // функция открытия попапа
 function addPopupVisibility(popup) {
   popup.classList.add('popup_is-open');
+  addStandartListeners(popup);
+  enableValidation(obj);
 }
+
+
 // функция скрытия попапов
 function removePopupVisibility(popup) {
   popup.classList.remove('popup_is-open');
+  removeStandartListeners(popup);
 }
 // функция колбек для слушателя закрытия
 const handlePopupCloseButtonClick = (evt) => {
@@ -117,6 +122,26 @@ function closePopupByClickOverlay(evt) {
     removePopupVisibility(openPopup);
   }
 };
+
+// функция закрытия попапов через эскейп
+function closePopupByClickEsc(evt) {
+  const openPopup = document.querySelector('.popup_is-open');
+  const keyEsc = "Escape";
+  if(evt.key === keyEsc) {
+    removePopupVisibility(openPopup);
+  }
+}
+// обраблтчики стандартные для попапов
+function addStandartListeners(popup) {
+  document.addEventListener('keydown', closePopupByClickEsc);
+  popup.addEventListener('click', closePopupByClickOverlay);
+}
+// удаление стандартных обработчиков для попапов
+function removeStandartListeners(popup) {
+  document.removeEventListener('keydown', closePopupByClickEsc);
+  popup.removeEventListener('click', closePopupByClickOverlay);
+}
+
 // функция слушатель для кнопки добавления карточек
 popupOpenButtonElementGallery.addEventListener('click', () => {
   nameGalleryInput.value = "";
@@ -130,9 +155,8 @@ popupCloseButtonPopupImage.addEventListener('click', handlePopupCloseButtonClick
 // слушатель самбита добавления карточки
 formElementGallery.addEventListener("submit", handlePopupAddCardSubmit);
 // слушатели оверлей
-popupElementProfile.addEventListener('click', closePopupByClickOverlay);
-popupElementGallery.addEventListener('click', closePopupByClickOverlay);
-popupImage.addEventListener('click', closePopupByClickOverlay);
+
+
 // слушатель самбита профиля
 formElementProfile.addEventListener('submit', formSubmitHandlerProfile);
 // слушатель для закрытия попапа профиля
