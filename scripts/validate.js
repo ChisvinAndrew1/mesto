@@ -38,8 +38,6 @@ const setListenersToForm = (formElement, {inputSelector, submitButtonSelector, i
 // обнуление текста ошибки, стиля инпутов, обработчик на событие инпут для каждого инпута
 function addListenersToInput(inputElement, {inputErrorClass}) {
   const errorContainer = document.querySelector(`#${inputElement.id}-error`);
-  errorContainer.textContent = "";
-  inputElement.classList.remove(inputErrorClass);
 	inputElement.addEventListener('input', () => {
     handleFieldValidation(inputElement, errorContainer, inputErrorClass);
   })
