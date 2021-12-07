@@ -57,14 +57,13 @@ function submitAddCardForm() {
 function addPopupVisibility(popup) {
   popup.classList.add("popup_is-open");
   addStandartListenersKey();
-  setListenersCloseClick();
 }
 
 // функция скрытия попапов
 function removePopupVisibility(popup) {
   popup.classList.remove("popup_is-open");
-  addStandartListenersKey();
-  removeListenersCloseClick();
+  removeStandartListenersKey();
+  // removeListenersCloseClick();
 }
 
 function cleanErrorValidate(popup) {
@@ -123,25 +122,32 @@ function closePopupByClickEsc(evt) {
 // функция наложение слушателей по клику
 function setListenersCloseClick() {
   popups.forEach((popup) => {
-    popup.addEventListener("click", handleListenersCloseClick);
+    popup.addEventListener("click", (evt) => {
+      if (evt.target.classList.contains("popup_is-open")) {
+        removePopupVisibility(popup);
+      }
+      if (evt.target.classList.contains("popup__close")) {
+        removePopupVisibility(popup);
+      }
+    });
   });
 }
 // функция управления событиями на клике
-function handleListenersCloseClick(evt) {
-  const openPopup = document.querySelector(".popup_is-open");
-  if (evt.target.classList.contains("popup_is-open")) {
-    removePopupVisibility(openPopup);
-  }
-  if (evt.target.classList.contains("popup__close")) {
-    removePopupVisibility(openPopup);
-  }
-}
+// function handleListenersCloseClick(evt) {
+//   // const openPopup = document.querySelector(".popup_is-open");
+//   if (evt.target.classList.contains("popup_is-open")) {
+//     removePopupVisibility(openPopup);
+//   }
+//   if (evt.target.classList.contains("popup__close")) {
+//     removePopupVisibility(openPopup);
+//   }
+// }
 // функция удаления слушателей по клику
-function removeListenersCloseClick() {
-  popups.forEach((popup) => {
-    popup.removeEventListener("click", handleListenersCloseClick);
-  });
-}
+// function removeListenersCloseClick() {
+//   popups.forEach((popup) => {
+//     popup.removeEventListener("click", handleListenersCloseClick);
+//   });
+// }
 
 // обраблтчики стандартные для попапов
 function addStandartListenersKey() {
@@ -176,10 +182,10 @@ function handleProfileFormSubmit(evt) {
 // колбек самбита добавления каточек
 function handlePopupAddCardSubmit(evt) {
   evt.preventDefault();
-  nameGalleryInput.value = "";
-  sourseInput.value = "";
   handleButtonValidate(popupElementGallery);
   submitAddCardForm();
+  nameGalleryInput.value = "";
+  sourseInput.value = "";
   removePopupVisibility(popupElementGallery);
 }
 
@@ -188,3 +194,4 @@ formElementProfile.addEventListener("submit", handleProfileFormSubmit);
 
 // вызов главной функции
 renderInitialCards();
+setListenersCloseClick();
