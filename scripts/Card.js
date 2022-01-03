@@ -11,8 +11,8 @@ export default class Card {
     const cardElement = document
       .querySelector(this._cardSelector)
       .content
+      .querySelector('.card')
       .cloneNode(true)
-      .children[0];
 
     return cardElement;
   }
@@ -35,6 +35,7 @@ export default class Card {
 
   _handleCardDelete = () => {
     this._element.remove();
+    this._element = null;
   }
 
   createCard() {

@@ -17,17 +17,17 @@ export default class FormValidation {
   _setListenersToForm () {
 
     const inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
-    const buttonElement = this._form.querySelector(this._submitButtonSelector);
 
     inputList.forEach((inputElement) => {
       this._addListenersToInput(inputElement);
+
     });
 
     this._form.addEventListener('input', () => {
-      this._handleFormInput(buttonElement);
+      this._handleFormInput();
     });
 
-    this.toggleButtonState(buttonElement);
+    this.toggleButtonState();
     };
 
 
@@ -35,25 +35,35 @@ export default class FormValidation {
   _addListenersToInput(inputElement) {
       const errorContainer = document.querySelector(`#${inputElement.id}-error`);
       inputElement.addEventListener('input', () => {
-        this.handleFieldValidation(inputElement, errorContainer);
+        this._handleFieldValidation(inputElement, errorContainer);
       })
 
     };
 
-    _handleFormInput(buttonElement) {
-      this.toggleButtonState(buttonElement);
+    _handleFormInput() {
+      this.toggleButtonState();
   }
 
-  toggleButtonState(buttonElement) {
+  toggleButtonState() {
+    const buttonElement = this._form.querySelector(this._submitButtonSelector);
     const isFormInvalid = !this._form.checkValidity();
     buttonElement.disabled = isFormInvalid;
     buttonElement.classList.toggle(this._inactiveButtonClass, isFormInvalid);
   }
 
-  handleFieldValidation(inputElement, errorContainer) {
+  _handleFieldValidation(inputElement, errorContainer) {
     inputElement.classList.toggle(this._inputErrorClass, !inputElement.validity.valid);
     errorContainer.textContent = inputElement.validationMessage;
   }
+
+  cleanErrorValidate() {
+  const inputs = [...this._form.querySelectorAll(this._inputSelector)];
+  inputs.forEach((input) => {
+    input.classList.remove(this._inputErrorClass);
+    // console.log(input.nextElementSibling);
+    input.nextElementSibling.textContent = "";
+  });
+}
 
 }
 
