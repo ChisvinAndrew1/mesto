@@ -92,19 +92,6 @@ function closePopupByClickEsc(evt) {
     removePopupVisibility(openPopup);
   }
 }
-// функция наложение слушателей по клику
-// function setListenersCloseClick() {
-//   popups.forEach((popup) => {
-//     popup.addEventListener("click", (evt) => {
-//       if (evt.target.classList.contains("popup_is-open")) {
-//         removePopupVisibility(popup);
-//       }
-//       if (evt.target.classList.contains("popup__close")) {
-//         removePopupVisibility(popup);
-//       }
-//     });
-//   });
-// }
 
 function handleProfileFormSubmit() {
   profileNameElement.textContent = nameInput.value;
@@ -127,14 +114,14 @@ popupOpenButtonElementProfile.addEventListener("click", () => {
 
   // cleanErrorValidate(popupElementProfile, objValidate);
   // handleButtonValidate(popupElementProfile, objValidate);
-  editFormValidator.toggleButtonState();
+  editFormValidator.cleanButtonState();
 
   addPopupVisibility(popupElementProfile);
 });
 
 popupOpenButtonElementGallery.addEventListener("click", () => {
   // handleButtonValidate(popupElementGallery, objValidate);
-  cardFormValidator.toggleButtonState();
+  cardFormValidator.cleanButtonState();
   addPopupVisibility(popupElementGallery);
 });
 

@@ -7,6 +7,8 @@ export default class FormValidation {
     this._inputErrorClass = data.inputErrorClass;
   }
 
+  _inputs = Array.from(document.querySelectorAll('.popup__input'));
+
   enableValidation () {
     this._form.addEventListener('submit', (evt) => {
         evt.preventDefault();
@@ -16,9 +18,9 @@ export default class FormValidation {
 
   _setListenersToForm () {
 
-    const inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
+    // const inputs =
 
-    inputList.forEach((inputElement) => {
+    this._inputs.forEach((inputElement) => {
       this._addListenersToInput(inputElement);
 
     });
@@ -27,7 +29,7 @@ export default class FormValidation {
       this._handleFormInput();
     });
 
-    this.toggleButtonState();
+    this._toggleButtonState();
     };
 
 
@@ -41,10 +43,10 @@ export default class FormValidation {
     };
 
     _handleFormInput() {
-      this.toggleButtonState();
+      this._toggleButtonState();
   }
 
-  toggleButtonState() {
+  _toggleButtonState() {
     const buttonElement = this._form.querySelector(this._submitButtonSelector);
     const isFormInvalid = !this._form.checkValidity();
     buttonElement.disabled = isFormInvalid;
@@ -57,13 +59,19 @@ export default class FormValidation {
   }
 
   cleanErrorValidate() {
-  const inputs = [...this._form.querySelectorAll(this._inputSelector)];
-  inputs.forEach((input) => {
+  this._inputs.forEach((input) => {
     input.classList.remove(this._inputErrorClass);
     // console.log(input.nextElementSibling);
     input.nextElementSibling.textContent = "";
-  });
-}
+    });
+  }
+
+  cleanButtonState() {
+    const buttonElement = this._form.querySelector(this._submitButtonSelector);
+    buttonElement.disabled = true;
+    buttonElement.classList.add(this._inactiveButtonClass);
+  }
+
 
 }
 
