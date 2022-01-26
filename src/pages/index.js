@@ -1,4 +1,4 @@
-// import './index.css';
+import './index.css';
 import Card from "../scripts/components/Card.js";
 import Section from "../scripts/components/Section.js";
 import FormValidation from "../scripts/components/FormValidation.js";
