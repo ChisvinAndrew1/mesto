@@ -5,45 +5,37 @@ export default class FormValidation {
     this._submitButtonSelector = data.submitButtonSelector;
     this._inactiveButtonClass = data.inactiveButtonClass;
     this._inputErrorClass = data.inputErrorClass;
+    this._inputs = Array.from(this._form.querySelectorAll(".popup__input"));
   }
 
-  _inputs = Array.from(document.querySelectorAll('.popup__input'));
+  enableValidation() {
+    this._form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+    });
+    this._setListenersToForm();
+  }
 
-  enableValidation () {
-    this._form.addEventListener('submit', (evt) => {
-        evt.preventDefault();
-      });
-      this._setListenersToForm();
-    };
-
-  _setListenersToForm () {
-
-    // const inputs =
-
+  _setListenersToForm() {
     this._inputs.forEach((inputElement) => {
       this._addListenersToInput(inputElement);
-
     });
 
-    this._form.addEventListener('input', () => {
+    this._form.addEventListener("input", () => {
       this._handleFormInput();
     });
 
     this._toggleButtonState();
-    };
-
-
+  }
 
   _addListenersToInput(inputElement) {
-      const errorContainer = document.querySelector(`#${inputElement.id}-error`);
-      inputElement.addEventListener('input', () => {
-        this._handleFieldValidation(inputElement, errorContainer);
-      })
+    const errorContainer = document.querySelector(`#${inputElement.id}-error`);
+    inputElement.addEventListener("input", () => {
+      this._handleFieldValidation(inputElement, errorContainer);
+    });
+  }
 
-    };
-
-    _handleFormInput() {
-      this._toggleButtonState();
+  _handleFormInput() {
+    this._toggleButtonState();
   }
 
   _toggleButtonState() {
@@ -54,15 +46,17 @@ export default class FormValidation {
   }
 
   _handleFieldValidation(inputElement, errorContainer) {
-    inputElement.classList.toggle(this._inputErrorClass, !inputElement.validity.valid);
+    inputElement.classList.toggle(
+      this._inputErrorClass,
+      !inputElement.validity.valid
+    );
     errorContainer.textContent = inputElement.validationMessage;
   }
 
   cleanErrorValidate() {
-  this._inputs.forEach((input) => {
-    input.classList.remove(this._inputErrorClass);
-    // console.log(input.nextElementSibling);
-    input.nextElementSibling.textContent = "";
+    this._inputs.forEach((input) => {
+      input.classList.remove(this._inputErrorClass);
+      input.nextElementSibling.textContent = "";
     });
   }
 
@@ -71,7 +65,4 @@ export default class FormValidation {
     buttonElement.disabled = true;
     buttonElement.classList.add(this._inactiveButtonClass);
   }
-
-
 }
-
