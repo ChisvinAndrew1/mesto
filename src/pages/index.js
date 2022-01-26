@@ -15,32 +15,36 @@ import {
   jobInput,
   formElementProfile,
   formElementGallery,
+  popupElementText,
+  popupElementImage
 } from "../scripts/utils/constants.js";
 import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
 import UserInfo from "../scripts/components/UserInfo.js";
+const createCard = (item) => {
+  const card = new Card(item, ".template_item", handleCardClick);
+  const cardElement = card.createCard();
+  return cardElement
+}
+
 const editFormValidator = new FormValidation(objValidate, formElementProfile);
 const cardFormValidator = new FormValidation(objValidate, formElementGallery);
 const sectionGallery = new Section(
   {
     data: initialCards,
     renderer: (el) => {
-      const card = new Card(el, ".template_item", handleCardClick);
-      const cardElement = card.createCard();
-
+      const cardElement =  createCard(el);
       sectionGallery.addItem(cardElement);
     },
   },
   selectorSectionGallery
 );
 
+
 const popupGallery = new PopupWithForm({
   popupSelector: ".popup_type_gallery",
   handleFormSubmit: (formData) => {
-    const card = new Card(formData, ".template_item", handleCardClick);
-
-    const cardElement = card.createCard();
-
+    const cardElement =  createCard(formData);
     sectionGallery.setItem(cardElement);
   },
 });
@@ -52,11 +56,11 @@ const popupProfile = new PopupWithForm({
     userInfo.setUserInfo(formData);
   },
 });
+const popupImage = new PopupWithImage(selectorPopupImage, selectorOpenPopup);
+popupImage.setEventListeners();
 
 const handleCardClick = (evt) => {
-  const popupImage = new PopupWithImage(selectorPopupImage, selectorOpenPopup);
-  popupImage.open(evt);
-  popupImage.setEventListeners();
+  popupImage.open(evt, {popupElementText, popupElementImage,});
 };
 
 popupOpenButtonElementProfile.addEventListener("click", () => {
@@ -73,6 +77,7 @@ function handleInputProfile() {
 }
 
 popupOpenButtonElementGallery.addEventListener("click", () => {
+  cardFormValidator.cleanErrorValidate();
   cardFormValidator.cleanButtonState();
   popupGallery.open();
 });
