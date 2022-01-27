@@ -15,8 +15,6 @@ import {
   jobInput,
   formElementProfile,
   formElementGallery,
-  popupElementText,
-  popupElementImage
 } from "../scripts/utils/constants.js";
 import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
@@ -60,7 +58,10 @@ const popupImage = new PopupWithImage(selectorPopupImage, selectorOpenPopup);
 popupImage.setEventListeners();
 
 const handleCardClick = (evt) => {
-  popupImage.open(evt, {popupElementText, popupElementImage,});
+  const data ={};
+  data.link = evt.target.src;
+  data.name = evt.target.alt;
+  popupImage.open(data);
 };
 
 popupOpenButtonElementProfile.addEventListener("click", () => {
