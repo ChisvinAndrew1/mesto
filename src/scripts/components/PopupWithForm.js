@@ -15,7 +15,7 @@ export default class PopupWithForm extends Popup {
     this._inputList.forEach((input) => {
       this._formValues[input.name] = input.value;
     });
-
+    // console.log(this._formValues)
     return this._formValues;
   }
 
@@ -29,7 +29,15 @@ export default class PopupWithForm extends Popup {
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
-      this.close();
     });
+  }
+
+  renderLoading(isLoading) {
+    if (isLoading) {
+      this._container.querySelector(".popup__sumbit").textContent =
+        "Сохранение...";
+    } else {
+      this._container.querySelector(".popup__sumbit").textContent = "Сохранить";
+    }
   }
 }
