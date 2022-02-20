@@ -135,7 +135,7 @@ const popupAvatar = new PopupWithForm({
       .then((data) => {
         userInfo.setUserInfo(data);
       })
-      .then(() => popupConfirm.close())
+      .then(() => popupAvatar.close())
       .catch((err) => `Не удалось отредактировать профиль, ошибка ${err}`)
       .finally(() => popupAvatar.renderLoading(false));
   },

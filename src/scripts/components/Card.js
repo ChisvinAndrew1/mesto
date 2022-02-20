@@ -29,10 +29,12 @@ export default class Card {
 
   createCard() {
     this._element = this._getTemplate();
-    this._element.querySelector(".card__image").src = this._image;
-    this._element.querySelector(".card__image").alt = this._name;
-    this._element.querySelector(".card__sum-stroke").textContent =
-      this._likes.length;
+    this._cardImage = this._element.querySelector(".card__image");
+    this._sumStroke = this._element.querySelector(".card__sum-stroke");
+    this._cardStroke = this._element.querySelector(".card__stroke");
+    this._cardImage.src = this._image;
+    this._cardImage.alt = this._name;
+    this._sumStroke.textContent = this._likes.length;
     this._setIsLiked();
     this._element.querySelector(".card__el-title").textContent = this._name;
     this._setCardListeners();
@@ -42,33 +44,26 @@ export default class Card {
   }
 
   _setCardListeners() {
-    this._element
-      .querySelector(".card__stroke")
-      .addEventListener("click", () => this._handleLikeCard(this));
+    this._cardStroke.addEventListener("click", () => this._handleLikeCard(this));
     this._element
       .querySelector(".card__trash")
       .addEventListener("click", () => this._handleDeleteCard(this));
-    this._element
-      .querySelector(".card__image")
+      this._cardImage
       .addEventListener("click", this._openPopupImage.bind(this));
   }
 
   _handleAddCardLike(data) {
-    this._element
-      .querySelector(".card__stroke")
+    this._cardStroke
       .classList.add("card__stroke_active");
-    this._element.querySelector(".card__sum-stroke").textContent =
-      data.likes.length;
+      this._sumStroke.textContent = data.likes.length;
     this._isLiked = true;
   }
 
   _handleRemoveCardLike(data) {
-    this._element
-      .querySelector(".card__stroke")
+    this._cardStroke
       .classList.remove("card__stroke_active");
-    this._element.querySelector(".card__sum-stroke").textContent =
-      data.likes.length;
-    this._isLiked = false;
+      this._sumStroke.textContent = data.likes.length;
+      this._isLiked = false;
   }
 
   handleCardDelete = () => {
@@ -78,8 +73,7 @@ export default class Card {
 
   _setIsLiked() {
     if (this._isLiked) {
-      this._element
-        .querySelector(".card__stroke")
+      this._cardStroke
         .classList.add("card__stroke_active");
     }
   }
